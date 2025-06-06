@@ -1,3 +1,4 @@
+// src/layouts/DashboardLayout.tsx
 import { Outlet, Navigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import Sidebar from '../components/navigation/Sidebar';
@@ -16,6 +17,7 @@ const DashboardLayout = () => {
       <div className="flex-1 flex flex-col overflow-hidden">
         <DashboardHeader />
         <main className="flex-1 overflow-y-auto p-4 md:p-6">
+          {/* ← Outlet is where TransactionsPage (and other nested routes) appear */}
           <Outlet />
         </main>
       </div>

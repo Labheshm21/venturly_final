@@ -68,15 +68,15 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-blue-400" />
-                <a href="mailto:info@venturly.com" className="text-gray-300 hover:text-white">info@venturly.com</a>
+                <a href="mailto:info@venturly.com" className="text-gray-300 hover:text-white">contact@venturly.com</a>
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-blue-400" />
-                <a href="tel:+1234567890" className="text-gray-300 hover:text-white">+1 (234) 567-890</a>
+                <a href="tel:+1234567890" className="text-gray-300 hover:text-white">+1 774 312 9811</a>
               </li>
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 text-blue-400 mt-1" />
-                <span className="text-gray-300">123 Investment Ave, San Francisco, CA 94103, USA</span>
+                <span className="text-gray-300">Worcester Polytechnic Institute</span>
               </li>
             </ul>
           </div>

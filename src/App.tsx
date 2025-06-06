@@ -1,5 +1,4 @@
 // src/App.tsx
-import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { UserProvider } from './contexts/UserContext';
 
@@ -22,6 +21,7 @@ import StartupDirectory from './pages/directory/StartupDirectory';
 import InvestorDirectory from './pages/directory/InvestorDirectory';
 import FaqPage from './pages/FaqPage';
 import NotFoundPage from './pages/NotFoundPage';
+import TransactionsPage from './pages/transactions/TransactionsPage';
 
 function App() {
   return (
@@ -38,7 +38,7 @@ function App() {
             <Route path="faq" element={<FaqPage />} />
           </Route>
           
-          {/* Protected routes */}
+          {/* Protected routes under /dashboard/* */}
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route path="startup" element={<StartupDashboard />} />
             <Route path="investor" element={<InvestorDashboard />} />
@@ -47,9 +47,11 @@ function App() {
             <Route path="dealroom/:id" element={<DealRoom />} />
             <Route path="milestones" element={<MilestoneTracker />} />
             <Route path="approvals" element={<MilestoneApprovals />} />
+            {/* ← Added Transactions route */}
+            <Route path="transactions" element={<TransactionsPage />} />
           </Route>
           
-          {/* 404 page */}
+          {/* 404 */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Router>

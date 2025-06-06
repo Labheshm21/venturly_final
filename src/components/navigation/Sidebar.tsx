@@ -1,3 +1,4 @@
+// src/components/navigation/Sidebar.tsx
 import { Link, useLocation } from 'react-router-dom';
 import { useUser } from '../../contexts/UserContext';
 import {
@@ -9,7 +10,6 @@ import {
   Settings,
   FileText,
   UserCircle,
-  ChevronRight,
   Building2,
   Wallet,
 } from 'lucide-react';
@@ -150,25 +150,32 @@ const Sidebar = () => {
           Deal Room
         </Link>
       </li>
+
       <li className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider mt-6">
         Finance
       </li>
       <li>
+        {/* Changed to /dashboard/transactions */}
         <Link
-          to="#"
-          className={`flex items-center px-4 py-2 rounded-md text-gray-700 hover:bg-blue-50`}
+          to="/dashboard/transactions"
+          className={`flex items-center px-4 py-2 rounded-md ${
+            isActive('/dashboard/transactions')
+              ? 'text-white bg-blue-600'
+              : 'text-gray-700 hover:bg-blue-50'
+          }`}
         >
           <Wallet className="h-5 w-5 mr-3" />
           Transactions
         </Link>
       </li>
+
       <li className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider mt-6">
         Other
       </li>
       <li>
         <Link
           to="#"
-          className={`flex items-center px-4 py-2 rounded-md text-gray-700 hover:bg-blue-50`}
+          className="flex items-center px-4 py-2 rounded-md text-gray-700 hover:bg-blue-50"
         >
           <FileText className="h-5 w-5 mr-3" />
           Documents
@@ -177,7 +184,7 @@ const Sidebar = () => {
       <li>
         <Link
           to="#"
-          className={`flex items-center px-4 py-2 rounded-md text-gray-700 hover:bg-blue-50`}
+          className="flex items-center px-4 py-2 rounded-md text-gray-700 hover:bg-blue-50"
         >
           <Settings className="h-5 w-5 mr-3" />
           Settings
