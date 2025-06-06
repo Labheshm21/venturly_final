@@ -76,11 +76,12 @@ const Navbar = () => {
               {isAuthenticated ? (
                 <>
                   <Link
-                    to={dashboardLink}
-                    className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Dashboard
-                  </Link>
+  to="/login"
+  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+>
+  Login
+</Link>
+
                   <button
                     onClick={handleLogout}
                     className="ml-4 px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
