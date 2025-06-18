@@ -12,16 +12,36 @@ const Footer = () => {
               Connecting innovative startups with visionary investors to build the future together.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a
+                href="https://www.linkedin.com/company/venturlyinvestments/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white"
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a
+                href="https://x.com/venturly_"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white"
+              >
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a
+                href="https://www.facebook.com/people/Venturly/61577697775632/?mibextid=wwXIfr&rdid=jgudE6VX482ywpDj&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CWgAqhX2i%2F%3Fmibextid%3DwwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white"
+              >
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a
+                href="https://www.instagram.com/venturly"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white"
+              >
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
@@ -55,10 +75,10 @@ const Footer = () => {
                 <Link to="/register" className="text-gray-300 hover:text-white">Create Account</Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white">Privacy Policy</a>
+                <a href="/privacy-policy" className="text-gray-300 hover:text-white">Privacy Policy</a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white">Terms of Service</a>
+                <a href="/terms-of-service" className="text-gray-300 hover:text-white">Terms of Service</a>
               </li>
             </ul>
           </div>
@@ -68,11 +88,11 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-blue-400" />
-                <a href="mailto:info@venturly.com" className="text-gray-300 hover:text-white">contact@venturly.com</a>
+                <a href="mailto:info@venturlyinvestments.com" className="text-gray-300 hover:text-white">info@venturlyinvestments.com</a>
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-blue-400" />
-                <a href="tel:+1234567890" className="text-gray-300 hover:text-white">+1 774 312 9811</a>
+                <a href="tel:+17743129811" className="text-gray-300 hover:text-white">+1 774-312-9812</a>
               </li>
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 text-blue-400 mt-1" />
@@ -80,6 +100,15 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Educational/demo disclaimer */}
+        <div className="mt-8 text-sm text-gray-500 max-w-2xl mx-auto text-center">
+          <p>
+            Venturly is a student-led project at Worcester Polytechnic Institute, built for educational and demonstration purposes only. 
+            None of the content here is intended as financial, legal, or investment advice. All services and information are provided “as-is” 
+            and “as available,” without any warranty. Venturly disclaims any liability for losses or damages arising from your use of this site.
+          </p>
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">

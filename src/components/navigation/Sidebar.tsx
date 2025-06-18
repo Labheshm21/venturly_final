@@ -173,23 +173,31 @@ const Sidebar = () => {
         Other
       </li>
       <li>
-        <Link
-          to="#"
-          className="flex items-center px-4 py-2 rounded-md text-gray-700 hover:bg-blue-50"
-        >
-          <FileText className="h-5 w-5 mr-3" />
-          Documents
-        </Link>
-      </li>
+  <Link
+    to="/documents"
+    className={`flex items-center px-4 py-2 rounded-md ${
+      isActive('/documents')
+        ? 'text-white bg-blue-600'
+        : 'text-gray-700 hover:bg-blue-50'
+    }`}
+  >
+    <FileText className="h-5 w-5 mr-3" />
+    Documents
+  </Link>
+</li>
       <li>
-        <Link
-          to="#"
-          className="flex items-center px-4 py-2 rounded-md text-gray-700 hover:bg-blue-50"
-        >
-          <Settings className="h-5 w-5 mr-3" />
-          Settings
-        </Link>
-      </li>
+  <Link
+    to="/settings"
+    className={`flex items-center px-4 py-2 rounded-md ${
+      isActive('/settings')
+        ? 'text-white bg-blue-600'
+        : 'text-gray-700 hover:bg-blue-50'
+    }`}
+  >
+    <Settings className="h-5 w-5 mr-3" />
+    Settings
+  </Link>
+</li>
     </>
   );
 

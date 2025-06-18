@@ -22,6 +22,8 @@ import InvestorDirectory from './pages/directory/InvestorDirectory';
 import FaqPage from './pages/FaqPage';
 import NotFoundPage from './pages/NotFoundPage';
 import TransactionsPage from './pages/transactions/TransactionsPage';
+import SettingsPage from './pages/SettingsPage';
+import DocumentsPage from './pages/DocumentsPage';
 
 function App() {
   return (
@@ -36,6 +38,10 @@ function App() {
             <Route path="startups" element={<StartupDirectory />} />
             <Route path="investors" element={<InvestorDirectory />} />
             <Route path="faq" element={<FaqPage />} />
+            <Route path="/documents" element={<DocumentsPage/>} />
+      <Route path="/settings" element={<SettingsPage/>} />
+      {/* optional detail route for docs */}
+    
           </Route>
           
           {/* Protected routes under /dashboard/* */}
