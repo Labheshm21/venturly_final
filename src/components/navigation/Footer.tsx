@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -90,10 +90,7 @@ const Footer = () => {
                 <Mail className="h-5 w-5 mr-2 text-blue-400" />
                 <a href="mailto:info@venturlyinvestments.com" className="text-gray-300 hover:text-white">info@venturlyinvestments.com</a>
               </li>
-              <li className="flex items-center">
-                <Phone className="h-5 w-5 mr-2 text-blue-400" />
-                <a href="tel:+17743129811" className="text-gray-300 hover:text-white">+1 774-312-9812</a>
-              </li>
+              
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 text-blue-400 mt-1" />
                 <span className="text-gray-300">Worcester Polytechnic Institute</span>
