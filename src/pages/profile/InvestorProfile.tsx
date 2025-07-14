@@ -3,72 +3,87 @@ import { Linkedin, Globe, Mail } from "lucide-react";
 
 const InvestorProfile: React.FC = () => {
   const investor = {
+    image: "/profiles/aperture.jpg", // update with actual path
     name: "Aperture Capital",
-    partner: "Labhesh Chhajed",
-    focus: ["Fin-tech", "Marketplaces", "Web-3 Infrastructure"],
-    ticket: "$100k – $500k",
-    aum: "$50 M",
+    email: "info@aperturecap.com",
+    linkedin: "https://linkedin.com/company/aperture-capital",
     location: "New York, NY",
-    website: "https://aperturecap.com",
     thesis:
       "We invest in early-stage teams building bridges between traditional finance and decentralized rails.",
+    interests: [
+      "EdTech",
+      "Insurance",
+      "Blockchain",
+      "FinTech",
+      "Sustainability",
+    ],
+    investmentRange: "$250k – $1M",
     portfolio: [
       { name: "On-Ramp", logo: "/logos/onramp.svg" },
       { name: "StableX", logo: "/logos/stablex.svg" },
       { name: "LoopPay", logo: "/logos/looppay.svg" },
     ],
+    joiningDate: "January 15, 2021",
   };
 
   return (
     <div className="mx-auto max-w-4xl space-y-8 px-4 py-10">
-      {/* Header */}
+      {/* Header with Image */}
       <section className="flex flex-col items-start gap-6 rounded-2xl bg-slate-800 p-8 text-white shadow-xl sm:flex-row sm:items-center">
+        <img
+          src={investor.image}
+          alt={investor.name}
+          className="h-24 w-24 rounded-full object-cover sm:mr-6"
+        />
         <div>
           <h1 className="text-3xl font-bold">{investor.name}</h1>
-          <p className="mt-1 text-sm font-light">Partner: {investor.partner}</p>
-          <p className="mt-4 text-sm">{investor.thesis}</p>
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-2 flex items-center space-x-4 text-sm font-light">
+            <Mail size={14} />
+            <span>{investor.email}</span>
+          </div>
+          <div className="mt-1 flex items-center space-x-4 text-sm font-light">
+            <Linkedin size={14} />
             <a
-              href={investor.website}
+              href={investor.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 rounded bg-white/10 px-4 py-2 text-xs font-medium hover:bg-white/20"
+              className="underline hover:text-blue-300"
             >
-              <Globe size={14} /> Website
+              LinkedIn Profile
             </a>
-            <button className="inline-flex items-center gap-1 rounded bg-white px-4 py-2 text-xs font-medium text-slate-800 shadow hover:bg-slate-100">
-              <Mail size={14} /> Message
-            </button>
           </div>
+          <div className="mt-1 flex items-center space-x-1 text-sm font-light">
+            <Globe size={14} />
+            <span>{investor.location}</span>
+          </div>
+          <p className="mt-4 text-sm">{investor.thesis}</p>
         </div>
       </section>
 
-      {/* Snapshot */}
+      {/* Interests */}
       <section className="rounded-xl border p-6">
-        <h2 className="mb-4 text-lg font-semibold">Snapshot</h2>
-        <ul className="space-y-2 text-sm">
-          <li>
-            <span className="font-medium">Focus:</span>{" "}
-            {investor.focus.join(", ")}
-          </li>
-          <li>
-            <span className="font-medium">Ticket Size:</span>{" "}
-            {investor.ticket}
-          </li>
-          <li>
-            <span className="font-medium">Assets under Management:</span>{" "}
-            {investor.aum}
-          </li>
-          <li>
-            <span className="font-medium">Location:</span>{" "}
-            {investor.location}
-          </li>
-        </ul>
+        <h2 className="mb-4 text-lg font-semibold">Interests</h2>
+        <div className="flex flex-wrap gap-2">
+          {investor.interests.map((sector) => (
+            <span
+              key={sector}
+              className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800"
+            >
+              {sector}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Static Investment Range */}
+      <section className="rounded-xl border p-6">
+        <h2 className="mb-4 text-lg font-semibold">Investment Range</h2>
+        <p className="text-sm font-medium">{investor.investmentRange}</p>
       </section>
 
       {/* Portfolio */}
       <section className="rounded-xl border p-6">
-        <h2 className="mb-6 text-lg font-semibold">Select Portfolio</h2>
+        <h2 className="mb-4 text-lg font-semibold">Portfolio Companies</h2>
         <div className="flex flex-wrap gap-6">
           {investor.portfolio.map((p) => (
             <div
@@ -86,27 +101,10 @@ const InvestorProfile: React.FC = () => {
         </div>
       </section>
 
-      {/* Social / CTA */}
-      <section className="rounded-xl bg-gray-50 p-6 text-center">
-        <h3 className="mb-4 text-xl font-semibold">
-          Connect with {investor.partner}
-        </h3>
-        <div className="flex justify-center gap-4">
-          <a
-            href="https://linkedin.com"
-            className="rounded-full bg-indigo-600 p-3 text-white shadow hover:bg-indigo-700"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={20} />
-          </a>
-          <a
-            href="mailto:partner@aperturecap.com"
-            className="rounded-full bg-indigo-600 p-3 text-white shadow hover:bg-indigo-700"
-            aria-label="Email"
-          >
-            <Mail size={20} />
-          </a>
-        </div>
+      {/* Joining Date */}
+      <section className="rounded-xl border p-6 text-sm">
+        <h2 className="mb-1 font-semibold">Platform Joining Date</h2>
+        <p>{investor.joiningDate}</p>
       </section>
     </div>
   );

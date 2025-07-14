@@ -1,124 +1,155 @@
+// src/pages/profile/StartupProfile.tsx
+
 import React from "react";
-import { CheckCircle, Mail } from "lucide-react";
+import { useParams, Navigate } from "react-router-dom";
+import { Startup } from "../../types/Startup";  // import the new type
+import { Mail, UploadCloud, FileText } from "lucide-react";
+import { mockStartups } from "../directory/StartupDirectory";
 
 const StartupProfile: React.FC = () => {
-  const startup = {
-    name: "Venturly Labs",
-    tagline: "Bridging Web-3 capital with real-world startups",
-    industry: "Fin-tech / Web-3",
-    stage: "Seed",
-    location: "Boston, MA",
-    website: "https://venturly.io",
-    fundraisingGoal: 1500000,
-    raised: 600000,
-    runway: "12 months",
-    founders: [
-      { name: "Labhesh Chhajed", role: "CEO", img: "/avatars/labhesh.jpg" },
-      { name: "Jane Doe", role: "CTO", img: "/avatars/jane.jpg" },
-    ],
-  };
+  const { id } = useParams<{ id: string }>();
+  // TypeScript now knows mockStartups is Startup[]
+  const startup = mockStartups.find((s) => s.id === id) as Startup | undefined;
 
-  const pctRaised = Math.round(
-    (startup.raised / startup.fundraisingGoal) * 100
-  );
+  if (!startup) {
+    return <Navigate to="/not-found" replace />;
+  }
 
   return (
     <div className="mx-auto max-w-5xl space-y-8 px-4 py-10">
       {/* Header */}
       <section className="rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 p-8 text-white shadow-xl">
-        <h1 className="text-4xl font-bold">{startup.name}</h1>
-        <p className="mt-2 text-lg">{startup.tagline}</p>
-        <div className="mt-4 flex gap-4">
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="text-4xl font-bold">{startup.name}</h1>
+            <p className="mt-2 text-lg">{startup.tagline}</p>
+          </div>
+          <button className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-3 py-1 rounded-md text-sm">
+            Edit
+          </button>
+        </div>
+        <div className="mt-4 flex flex-wrap gap-4">
           <a
             href={startup.website}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg bg-white/10 px-4 py-2 text-sm font-medium hover:bg-white/20"
+            className="bg-white bg-opacity-20 hover:bg-opacity-30 px-5 py-2 rounded-lg text-sm font-medium"
           >
-            Visit website
+            Visit Website
           </a>
-          <button className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-indigo-600 shadow hover:bg-indigo-50">
-            <Mail size={16} />
-            Contact founders
+          <button className="flex items-center gap-2 bg-white text-indigo-600 hover:bg-indigo-50 px-5 py-2 rounded-lg text-sm font-medium">
+            <Mail size={16} /> Contact Founders
           </button>
         </div>
       </section>
 
-      {/* Snapshot */}
-      <section className="grid gap-6 sm:grid-cols-2">
-        <div className="rounded-xl border p-6">
-          <h2 className="mb-4 text-lg font-semibold">Snapshot</h2>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <span className="font-medium">Industry:</span> {startup.industry}
-            </li>
-            <li>
-              <span className="font-medium">Stage:</span> {startup.stage}
-            </li>
-            <li>
-              <span className="font-medium">Location:</span>{" "}
-              {startup.location}
-            </li>
-            <li>
-              <span className="font-medium">Runway:</span> {startup.runway}
-            </li>
-          </ul>
+      {/* Problem */}
+      <section className="rounded-xl border border-gray-200 p-6">
+        <div className="flex justify-between items-center">
+          <h2 className="text-lg font-semibold">Problem</h2>
+          <button className="text-indigo-600 hover:underline text-sm">Edit</button>
         </div>
+        <textarea
+          readOnly
+          value={startup.problem}
+          className="w-full h-24 mt-2 p-4 bg-indigo-50 border rounded resize-none text-sm"
+        />
+      </section>
 
-        {/* Fund-raising progress */}
-        <div className="rounded-xl border p-6">
-          <h2 className="mb-4 text-lg font-semibold">Funding Round</h2>
-          <div className="mb-2 flex justify-between text-sm font-medium">
-            <span>${startup.raised.toLocaleString()} raised</span>
-            <span>${startup.fundraisingGoal.toLocaleString()} goal</span>
-          </div>
-          <div className="h-3 w-full overflow-hidden rounded bg-gray-200">
-            <div
-              className="h-full rounded bg-green-500"
-              style={{ width: `${pctRaised}%` }}
-            />
-          </div>
-          <p className="mt-2 text-sm text-gray-600">{pctRaised}% funded</p>
+      {/* Solution */}
+      <section className="rounded-xl border border-gray-200 p-6">
+        <div className="flex justify-between items-center">
+          <h2 className="text-lg font-semibold">Solution</h2>
+          <button className="text-indigo-600 hover:underline text-sm">Edit</button>
+        </div>
+        <textarea
+          readOnly
+          value={startup.solution}
+          className="w-full h-24 mt-2 p-4 bg-indigo-50 border rounded resize-none text-sm"
+        />
+      </section>
+
+      {/* Market Opportunity */}
+      <section className="rounded-xl border border-gray-200 p-6">
+        <div className="flex justify-between items-center">
+          <h2 className="text-lg font-semibold">Market Opportunity</h2>
+          <button className="text-indigo-600 hover:underline text-sm">Edit</button>
+        </div>
+        <textarea
+          readOnly
+          value={startup.marketOpportunity}
+          className="w-full h-24 mt-2 p-4 bg-indigo-50 border rounded resize-none text-sm"
+        />
+      </section>
+
+      {/* Traction */}
+      <section className="rounded-xl border border-gray-200 p-6">
+        <div className="flex justify-between items-center">
+          <h2 className="text-lg font-semibold">Traction</h2>
+          <button className="text-indigo-600 hover:underline text-sm">Edit</button>
+        </div>
+        <div className="mt-2">
+          {startup.traction.type === "image" ? (
+            <img src={startup.traction.src} alt={startup.traction.alt} className="w-full rounded" />
+          ) : (
+            <a
+              href={startup.traction.src}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-indigo-600 text-sm"
+            >
+              <FileText size={20} />
+              <span className="ml-2">View Traction PDF</span>
+            </a>
+          )}
         </div>
       </section>
 
-      {/* About */}
-      <section className="rounded-xl border p-6">
-        <h2 className="mb-4 text-lg font-semibold">About</h2>
-        <p className="text-sm leading-relaxed">
-          Venturly Labs is building a decentralized investment platform that
-          lets founders raise milestone-based funds in USDC or crypto without
-          legal headaches. Our smart-contract vaults automate vesting and
-          milestone checks, cutting admin time by 70 %.
-        </p>
-      </section>
-
-      {/* Team */}
-      <section className="rounded-xl border p-6">
-        <h2 className="mb-6 text-lg font-semibold">Founding Team</h2>
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {startup.founders.map((f) => (
-            <div key={f.name} className="flex flex-col items-center text-center">
-              <img
-                src={f.img}
-                alt={f.name}
-                className="h-20 w-20 rounded-full object-cover shadow"
-              />
-              <p className="mt-3 text-sm font-medium">{f.name}</p>
-              <p className="text-xs text-gray-500">{f.role}</p>
-            </div>
+      {/* Top Reasons */}
+      <section className="rounded-xl border border-gray-200 p-6">
+        <div className="flex justify-between items-center">
+          <h2 className="text-lg font-semibold">Top Reasons to Invest</h2>
+          <button className="text-indigo-600 hover:underline text-sm">Edit</button>
+        </div>
+        <ul className="list-decimal list-inside mt-2 space-y-1 text-sm">
+          {startup.reasonsToInvest.map((reason, idx) => (
+            <li key={idx}>{reason}</li>
           ))}
+        </ul>
+      </section>
+
+      {/* Business Details */}
+      <section className="rounded-xl border border-gray-200 p-6">
+        <div className="flex justify-between items-center">
+          <h2 className="text-lg font-semibold">Business Details</h2>
+          <button className="text-indigo-600 hover:underline text-sm">Edit</button>
+        </div>
+        <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
+          <div><strong>Equity Offered:</strong> {startup.businessDetails.equityOffered}</div>
+          <div><strong># Investors:</strong> {startup.businessDetails.investorsCount}</div>
+          <div><strong>Total Raised:</strong> {startup.businessDetails.totalRaised}</div>
+          <div><strong>Min Investment:</strong> {startup.businessDetails.minInvestment}</div>
+          <div><strong>Valuation:</strong> {startup.businessDetails.valuation}</div>
         </div>
       </section>
 
-      {/* Call-to-action */}
-      <section className="rounded-xl bg-indigo-50 p-6 text-center">
-        <h3 className="mb-4 text-xl font-semibold">
-          Interested in this raise?
-        </h3>
-        <button className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 font-medium text-white hover:bg-indigo-700">
-          <CheckCircle size={18} /> Join Deal Room
-        </button>
+      {/* Data Room */}
+      <section className="rounded-xl border border-gray-200 p-6">
+        <div className="flex justify-between items-center">
+          <h2 className="text-lg font-semibold">Data Room</h2>
+          <button className="text-indigo-600 hover:underline text-sm">Edit</button>
+        </div>
+        <div className="mt-4 space-y-3">
+          <label className="flex items-center gap-2 text-indigo-600 cursor-pointer hover:underline text-sm">
+            <UploadCloud /> Upload Company Documents
+            <input type="file" className="sr-only" multiple />
+          </label>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div><strong>Registration No.:</strong> {startup.dataRoom.registrationNumber}</div>
+            <div><strong>Established:</strong> {startup.dataRoom.established}</div>
+            <div><strong>Company Size:</strong> {startup.dataRoom.companySize}</div>
+          </div>
+        </div>
       </section>
     </div>
   );
