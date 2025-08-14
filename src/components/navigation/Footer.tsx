@@ -1,4 +1,4 @@
-import { Mail, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -34,14 +34,6 @@ const Footer = () => {
                 className="text-gray-400 hover:text-white"
               >
                 <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/venturly"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white"
-              >
-                <Instagram className="h-5 w-5" />
               </a>
             </div>
           </div>
