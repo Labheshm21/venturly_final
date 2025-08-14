@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
 import { Mail, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-2xl font-bold text-blue-400 mb-4">Venturly</h2>
             <p className="text-gray-300 mb-4">
@@ -48,43 +47,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-gray-300 hover:text-white">Home</Link>
-              </li>
-              <li>
-                <Link to="/startups" className="text-gray-300 hover:text-white">Browse Startups</Link>
-              </li>
-              <li>
-                <Link to="/investors" className="text-gray-300 hover:text-white">Browse Investors</Link>
-              </li>
-              <li>
-                <Link to="/faq" className="text-gray-300 hover:text-white">FAQ</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">For Users</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/login" className="text-gray-300 hover:text-white">Login</Link>
-              </li>
-              <li>
-                <Link to="/register" className="text-gray-300 hover:text-white">Create Account</Link>
-              </li>
-              <li>
-                <a href="/privacy-policy" className="text-gray-300 hover:text-white">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="/terms-of-service" className="text-gray-300 hover:text-white">Terms of Service</a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-4">Contact & Location</h3>
             <ul className="space-y-2">
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-blue-400" />
@@ -103,8 +66,8 @@ const Footer = () => {
         <div className="mt-8 text-sm text-gray-500 max-w-2xl mx-auto text-center">
           <p>
             Venturly is a student-led project at Worcester Polytechnic Institute, built for educational and demonstration purposes only. 
-            None of the content here is intended as financial, legal, or investment advice. All services and information are provided “as-is” 
-            and “as available,” without any warranty. Venturly disclaims any liability for losses or damages arising from your use of this site.
+            None of the content here is intended as financial, legal, or investment advice. All services and information are provided "as-is" 
+            and "as available," without any warranty. Venturly disclaims any liability for losses or damages arising from your use of this site.
           </p>
         </div>
 
