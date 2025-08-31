@@ -257,8 +257,7 @@ const HomePage = () => {
             <div className="text-6xl mb-6">🚀</div>
             <h2 className="text-4xl font-bold text-gray-800 mb-4">We're Still Building</h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Our platform is under development and will be launching soon. We're working hard to bring you 
-              the most innovative startup investment platform with milestone-based funding and transparent tracking.
+              Our platform is currently in development and will be launching soon. We are dedicated to building the most innovative startup investment ecosystem, designed around milestone-based funding and transparent progress tracking to ensure accountability and trust at every stage.
             </p>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-2xl font-bold text-blue-600 mb-4">Coming Soon</h3>
@@ -283,7 +282,7 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white rounded-2xl p-12 shadow-lg">
             <div className="flex items-center justify-center mb-6">
-              <Award className="h-16 w-16 text-blue-600 mr-6" />
+              <img src="/assets/wpi_i3_lab_logo.jpg" alt="WPI I3 Lab Logo" className="h-16 w-16 object-contain mr-6 rounded" />
               <div className="text-left">
                 <h2 className="text-4xl font-bold text-gray-900">Backed by WPI I3 Lab</h2>
                 <p className="text-xl text-blue-600 font-semibold">Worcester Polytechnic Institute</p>
